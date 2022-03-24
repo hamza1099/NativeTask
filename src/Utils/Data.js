@@ -28,3 +28,24 @@ export const DATA = [
     },
   ];
   
+
+  export   const Data=[
+    {
+      id: '1',
+      heading: 'Featured',
+      img:require('../Asset/img1.png'),
+      item: '4 items'
+    },
+    {
+      id: '2',
+      heading: 'Food & Drink',
+      img:require('../Asset/img1.png'),
+      item: '5 items'
+    },
+    {
+      id: '3',
+      heading: 'Pet Food',
+      img:require('../Asset/img1.png'),
+      item: '8 items'
+    },
+  ]
