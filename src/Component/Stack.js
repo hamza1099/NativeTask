@@ -16,6 +16,7 @@ import { WP } from '../Utils/utils';
 import Items from "./Items";
 import Reviews from "./Reviews";
 import About from "./About";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 export default function Stack({ navigation }) {
   const Tab = createMaterialTopTabNavigator();
   return (
@@ -27,7 +28,7 @@ export default function Stack({ navigation }) {
           style={styles.buttonContainer}
           hitSlop={{top: 20, bottom: 20, left: 50, right: 50}}
         >
-          <SimpleLineIcons name="arrow-left" style={styles.Icon} />
+          <MaterialIcons name="keyboard-arrow-left" style={styles.navIcon} />
         </TouchableOpacity>
        
         <Text style={styles.mainHeading}>Shop</Text>
@@ -58,7 +59,7 @@ export default function Stack({ navigation }) {
           tabBarIndicatorStyle: {
             backgroundColor: "#fff",
           },
-          tabBarLabelStyle: { fontSize: 14, fontWeight: "700" },
+          tabBarLabelStyle: { fontSize: 13, fontWeight: "700" },
           tabBarStyle: { backgroundColor: "black" },
         }}
       >
@@ -111,6 +112,11 @@ const styles = StyleSheet.create({
   Icon: {
     color: "#fff",
     fontSize: WP(4.5),
+    fontWeight: "bold",
+  },
+  navIcon: {
+    color: "#fff",
+    fontSize: WP(7),
     fontWeight: "bold",
   },
 });
