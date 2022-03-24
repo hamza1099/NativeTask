@@ -2,52 +2,72 @@ import React from 'react'
 import {Text,Image,View, StyleSheet,FlatList} from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { WP } from '../Utils/utils'
-
-const DATA = [
-  {
-    id: '1',
-    name: 'niriali',
-    date: 'Dec 11, 2021',
-    img:'require(../Asset/img1.png)',
-    description:'Beautiful quality. Was a hit when I put it in a long little box like real ones as a gift!',
-    icon:'../Asset/img1.png',
-    link:'Set of 6 Felt Macarons cat Toy'
-  },
-  {
-    id: '2',
-    name: 'niriali',
-    date: 'Dec 11, 2021',
-    img:'require(../Asset/img1.png)',
-    description:'Beautiful quality. Was a hit when I put it in a long little box like real ones as a gift!',
-    icon:'../Asset/img1.png',
-    link:'Set of 6 Felt Macarons cat Toy'
-  },
-  {
-    id: '3',
-    name: 'niriali',
-    date: 'Dec 11, 2021',
-    img:'require(../Asset/img1.png)',
-    description:'Beautiful quality. Was a hit when I put it in a long little box like real ones as a gift!',
-    icon:'../Asset/img1.png',
-    link:'Set of 6 Felt Macarons cat Toy'
-  },
-];
+import {DATA} from '../Utils/Data'
+// const DATA = [
+//   {
+//     id: '1',
+//     name: 'Niriali',
+//     date: 'Dec 11, 2021',
+//     img:require('../Asset/img1.png'),
+//     description:'Beautiful quality. Was a hit when I put it in a long little box like real ones as a gift!',
+//     icon:require('../Asset/img1.png'),
+//     link:'Set of 6 Felt Macarons cat Toy'
+//   },
+//   {
+//     id: '2',
+//     name: 'Jesi',
+//     date: 'Dec 11, 2021',
+//     img:require('../Asset/img1.png'),
+//     description:'Beautiful quality. Was a hit when I put it in a long little box like real ones as a gift!',
+//     icon:require('../Asset/img1.png'),
+//     link:'Set of 6 Felt Macarons cat Toy'
+//   },
+//   {
+//     id: '3',
+//     name: 'Keelay',
+//     date: 'Dec 11, 2021',
+//     img:require('../Asset/img1.png'),
+//     description:'Beautiful quality. Was a hit when I put it in a long little box like real ones as a gift!',
+//     icon:require('../Asset/img1.png'),
+//     link:'Set of 6 Felt Macarons cat Toy'
+//   },
+// ];
 
 export default function Reviews() {
-  const renderItem = ({ item }) => (
+  
+  const renderItem = ({ item }) => {
+
+  return (
     <View>
       <View style={styles.avatarContainer}>
         <Image
           style={styles.avatar}
-          source={require('../Asset/img1.png')}
+          source={item.img}
         />
-          <View style={{marginLeft:10}}>
+          <View style={{marginLeft:10,}}>
              <Text style={styles.avatarName}>{item.name}</Text>
              <Text style={styles.avatarDate}>{item.date}</Text>
           </View>
       </View>
+      <View style={{...styles.iconContainer,marginTop:15}}>
+            <FontAwesome name="star" style={styles.icon}/>
+            <FontAwesome name="star" style={styles.icon}/>
+            <FontAwesome name="star" style={styles.icon}/>
+            <FontAwesome name="star" style={styles.icon}/>
+            <FontAwesome name="star" style={styles.icon}/>
+      </View>
+      <Text style={styles.avatarDescription}>{item.description}</Text>
+      <View style={styles.linkContainer}>
+      <Image
+          style={styles.avatarlink}
+          source={item.icon}
+        />
+        <Text style={styles.linkDescription}>{item.link}</Text>
+      </View>
     </View>
-  );
+  )
+    
+  }
 
   return (
     <View style={styles.main}>
@@ -114,7 +134,8 @@ const styles = StyleSheet.create({
   },
   avatarContainer:{
     flexDirection:'row',
-    marginTop:12
+    marginTop:12,
+    alignItems:'center'
   },
   avatar:{
     width:WP(12),
@@ -122,14 +143,41 @@ const styles = StyleSheet.create({
     borderRadius:24,
     resizeMode:'cover'
   },
+  avatarlink:{
+    width:WP(8),
+    height:WP(8),
+    borderRadius:10,
+    resizeMode:'cover'
+  },
   avatarName:{
-    color:'#fff',
+    color:'#4290f5',
     fontSize:13,
-    marginBottom:-2
+    marginBottom:-2,
+    fontWeight:'600'
   },
   avatarDate:{
     color:'grey',
     fontSize:12,
     fontWeight:'600'
   },
+  avatarDescription:{
+    color:'#fff',
+    fontSize:13,
+    marginTop:3,
+  },
+  linkContainer:{
+    marginTop:20,
+    flexDirection:'row',
+    alignItems:'center',
+    borderBottomColor:'grey',
+    borderWidth:0.6,
+    paddingBottom:15,
+  },
+  linkDescription:{
+   color:'#fff',
+   fontSize:12,
+   marginLeft:13, 
+   borderBottomColor:'grey',
+   borderWidth:0.8,
+  }
 })
